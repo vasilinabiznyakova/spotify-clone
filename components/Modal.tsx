@@ -14,18 +14,22 @@ const Modal: React.FC<ModalProps> = ({
   onChange,
   title,
   description,
-  children
+  children,
 }) => {
-  return ( 
-    <Dialog.Root open={isOpen} defaultOpen={isOpen} onOpenChange={onChange}>
+  return (
+    <Dialog.Root
+      open={isOpen}
+      defaultOpen={isOpen}
+      onOpenChange={onChange}
+    >
       <Dialog.Portal>
-        <Dialog.Overlay 
+        <Dialog.Overlay
           className="
             bg-neutral-900/90 
             backdrop-blur-sm 
             fixed 
             inset-0
-          " 
+          "
         />
         <Dialog.Content
           className="
@@ -48,9 +52,11 @@ const Modal: React.FC<ModalProps> = ({
             bg-neutral-800 
             p-[25px] 
             focus:outline-none
-          ">
-          <Dialog.Title 
+          "
+        >
+          <Dialog.Title
             className="
+            text-neutral-200 
               text-xl 
               text-center 
               font-bold 
@@ -59,8 +65,9 @@ const Modal: React.FC<ModalProps> = ({
           >
             {title}
           </Dialog.Title>
-          <Dialog.Description 
+          <Dialog.Description
             className="
+            text-neutral-200 
               mb-5 
               text-sm 
               leading-normal 
@@ -69,9 +76,7 @@ const Modal: React.FC<ModalProps> = ({
           >
             {description}
           </Dialog.Description>
-          <div>
-            {children}
-          </div>
+          <div>{children}</div>
           <Dialog.Close asChild>
             <button
               className="
@@ -98,6 +103,6 @@ const Modal: React.FC<ModalProps> = ({
       </Dialog.Portal>
     </Dialog.Root>
   );
-}
- 
+};
+
 export default Modal;
